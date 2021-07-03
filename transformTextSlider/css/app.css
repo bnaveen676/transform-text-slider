@@ -1,0 +1,219 @@
+/* css variables */
+
+ :root {
+    --textFormat: upperCase;
+    --effect: all .8s linear;
+    /* start default theme */
+    --primaryCol: blue;
+    --secondaryCol: yellow;
+    --colorOne: #ffffff;
+    --colorTwo: #000000;
+    --colorThree: #808080;
+    /* end default theme */
+}
+
+
+/* global css */
+
+* {
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+    font-size: 100%;
+    box-sizing: border-box;
+}
+
+*/
+/* headings */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-transform: var(--textFormat);
+}
+
+
+/* start preloader */
+
+.preloadContainer {
+    background: var(--colorTwo);
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 9999;
+}
+
+.preloader {
+    background-image: url(../img/preloader/preloader.png);
+    background-repeat: no-repeat;
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+/* end preloader */
+
+
+/* start carousel  */
+
+.carousel-inner {
+    height: 35rem;
+}
+
+.carousel-item {
+    height: 100%;
+}
+
+
+/* start zoom animation to carousel image */
+
+@keyframes zoomInImage {
+    from {
+        transform: scale(1.1);
+        -webkit-transform: scale(1.1);
+        -moz-transform: scale (1.1);
+        -ms-transform: scale(1.1);
+        -o-transform: scale(1.1);
+    }
+    to {
+        transform: scale(1.5);
+        -webkit-transform: scale(1.5);
+        -moz-transform: scale(1.5);
+        -ms-transform: scale(1.5);
+        -o-transform: scale(1.5);
+    }
+}
+
+
+/*end zoom animation to carousel image */
+
+.carousel-item img {
+    height: 100%;
+    width: 100%;
+    filter: brightness(50%);
+    -webkit-filter: brightness(50%);
+    cursor: pointer;
+    animation: zoomInImage 20s infinite;
+}
+
+.carousel-caption {
+    top: 35%;
+    bottom: initial;
+    padding: 1rem;
+}
+
+.carousel-caption h1 {
+    text-transform: var(--textFormat);
+    letter-spacing: var(--space);
+    animation: slideInDown;
+    animation-duration: 2s;
+}
+
+.carousel-caption p {
+    animation: slideInUp;
+    animation-duration: 2s;
+}
+
+.carousel-caption a {
+    padding: .5rem 3rem;
+    border: 1px solid var(--primaryCol);
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    color: var(--colorOne);
+    transition: var(--effect);
+    -webkit-transition: var(--effect);
+    -moz-transition: var(--effect);
+    -ms-transition: var(--effect);
+    -o-transition: var(--effect);
+}
+
+.carousel-caption a:hover {
+    background: var(--primaryCol);
+    color: var(--secondaryCol);
+}
+
+.carousel-item-start,
+.carousel-item-end,
+.carousel-item.active {
+    transition: transform 2s ease;
+    -webkit-transition: transform 2s ease;
+    -moz-transition: transform 2s ease;
+    -ms-transition: transform 2s ease;
+    -o-transition: transform 2s ease;
+}
+
+.carousel-indicators [data-bs-target] {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    background-color: var(--secondaryCol);
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    background: var(--secondaryCol);
+    top: 40%;
+}
+
+.carousel-control-next {
+    right: 1rem;
+}
+
+.carousel-control-prev {
+    left: 1rem;
+}
+
+
+/* end carousel  */
+
+
+/* start media queries */
+
+@media (min-width: 768px) {
+    /* ( (tablets to laptop,desktop, 768px up)  */
+    .carousel-caption {
+        display: block;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 576px) {
+    /* ( (tablets to laptop,desktop, 768px up)  */
+    .carousel-inner {
+        height: 15rem;
+    }
+    .carousel-caption {
+        display: none;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    .carousel-inner {
+        height: 30rem;
+    }
+    /* (portrait phones (gio mobile to smart mobiles), less than 576px)  */
+}
+
+
+/* end media queries */
