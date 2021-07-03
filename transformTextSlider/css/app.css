@@ -22,19 +22,6 @@
     box-sizing: border-box;
 }
 
-*/
-/* headings */
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    text-transform: var(--textFormat);
-}
-
-
 /* start preloader */
 
 .preloadContainer {
